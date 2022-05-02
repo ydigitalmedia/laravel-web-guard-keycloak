@@ -22,7 +22,7 @@ class KeycloakWebGuardServiceProvider extends ServiceProvider
 	public function boot()
 	{
 		// Configuration
-		$config = __DIR__ . '/../config/keycloak-web-congfig.php';
+		$config = __DIR__ . '/../config/keycloak-web-config.php';
 
 		$this->publishes([$config => config_path('keycloak-web-config.php')], 'config');
 		$this->mergeConfigFrom($config, 'keycloak-web');
