@@ -29,7 +29,7 @@ class KeycloakWebGuardServiceProvider extends ServiceProvider
 		$config = __DIR__ . '/../config/keycloak-web-config.php';
 
 		$this->publishes([$config => config_path('keycloak-web-config.php')], 'config');
-		$this->mergeConfigFrom($config, 'keycloak-web');
+		$this->mergeConfigFrom($config, 'keycloak-web-config');
 
 		// User Provider
 		Auth::provider('keycloak-users', function ($app, array $config) {
