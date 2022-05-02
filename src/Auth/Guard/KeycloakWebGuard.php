@@ -2,6 +2,7 @@
 
 namespace YDigitalMedia\KeycloakWebGuard\Auth\Guard;
 
+use GuzzleHttp\Client;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
