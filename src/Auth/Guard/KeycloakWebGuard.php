@@ -215,8 +215,8 @@ class KeycloakWebGuard implements Guard
 		$token = $token->parseAccessToken();
 
 		$resourceRoles = $token['resource_access'] ?? [];
-		$resourceRoles = $resourceRoles[0]['roles'] ?? [];
-
+		$resourceRoles = $resourceRoles[Config::get('keycloak-web.client_id')] ?? [];
+		$resourceRoles = $resourceRoles['roles'] ?? [];
 		$permissions = [];
 
 		$headers = [
