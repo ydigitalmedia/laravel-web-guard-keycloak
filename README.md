@@ -1,6 +1,6 @@
 <p align="center">
     <img alt="Packagist Downloads" src="https://img.shields.io/packagist/dt/ydigitalmedia/keycloak-laravel-web-guard?style=for-the-badge">
-    <img alt="Packagist Version" src="https://img.shields.io/packagist/v/ydigitalmedia/keycloak-laravel-web-guard?style=for-the-badge">
+    <img alt="Packagist Version (including pre-releases)" src="https://img.shields.io/packagist/v/ydigitalmedia/keycloak-laravel-web-guard?include_prereleases&style=for-the-badge">
 </p>
 
 # Keycloak Web Guard for Laravel
