@@ -11,6 +11,10 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Session\Middleware\StartSession;
 use YDigitalMedia\KeycloakWebGuard\Auth\Guard\KeycloakWebGuard;
 use YDigitalMedia\KeycloakWebGuard\Auth\KeycloakWebUserProvider;
+use YDigitalMedia\KeycloakWebGuard\Middleware\KeycloakAuthenticated;
+use YDigitalMedia\KeycloakWebGuard\Middleware\KeycloakCan;
+use YDigitalMedia\KeycloakWebGuard\Models\KeycloakUser;
+use YDigitalMedia\KeycloakWebGuard\Services\KeycloakService;
 
 class KeycloakWebGuardServiceProvider extends ServiceProvider
 {
