@@ -1,20 +1,16 @@
 <?php
 
-namespace Vizir\KeycloakWebGuard;
+namespace YDigitalMedia\KeycloakWebGuard;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
-use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
-use Vizir\KeycloakWebGuard\Auth\Guard\KeycloakWebGuard;
-use Vizir\KeycloakWebGuard\Auth\KeycloakWebUserProvider;
-use Vizir\KeycloakWebGuard\Middleware\KeycloakAuthenticated;
-use Vizir\KeycloakWebGuard\Middleware\KeycloakCan;
-use Vizir\KeycloakWebGuard\Models\KeycloakUser;
-use Vizir\KeycloakWebGuard\Services\KeycloakService;
+use Illuminate\Session\Middleware\StartSession;
+use YDigitalMedia\KeycloakWebGuard\Auth\Guard\KeycloakWebGuard;
+use YDigitalMedia\KeycloakWebGuard\Auth\KeycloakWebUserProvider;
 
 class KeycloakWebGuardServiceProvider extends ServiceProvider
 {
@@ -99,19 +95,19 @@ class KeycloakWebGuardServiceProvider extends ServiceProvider
 		$router = $this->app->make('router');
 
 		if (!empty($routes['login'])) {
-			$router->middleware('web')->get($routes['login'], 'Vizir\KeycloakWebGuard\Controllers\AuthController@login')->name('keycloak.login');
+			$router->middleware('web')->get($routes['login'], 'YDigitalMedia\KeycloakWebGuard\Controllers\AuthController@login')->name('keycloak.login');
 		}
 
 		if (!empty($routes['logout'])) {
-			$router->middleware('web')->get($routes['logout'], 'Vizir\KeycloakWebGuard\Controllers\AuthController@logout')->name('keycloak.logout');
+			$router->middleware('web')->get($routes['logout'], 'YDigitalMedia\KeycloakWebGuard\Controllers\AuthController@logout')->name('keycloak.logout');
 		}
 
 		if (!empty($routes['register'])) {
-			$router->middleware('web')->get($routes['register'], 'Vizir\KeycloakWebGuard\Controllers\AuthController@register')->name('keycloak.register');
+			$router->middleware('web')->get($routes['register'], 'YDigitalMedia\KeycloakWebGuard\Controllers\AuthController@register')->name('keycloak.register');
 		}
 
 		if (!empty($routes['callback'])) {
-			$router->middleware('web')->get($routes['callback'], 'Vizir\KeycloakWebGuard\Controllers\AuthController@callback')->name('keycloak.callback');
+			$router->middleware('web')->get($routes['callback'], 'YDigitalMedia\KeycloakWebGuard\Controllers\AuthController@callback')->name('keycloak.callback');
 		}
 	}
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Vizir\KeycloakWebGuard\Models;
+namespace YDigitalMedia\KeycloakWebGuard\Models;
 
 use Auth;
 use Illuminate\Contracts\Auth\Authenticatable;
