@@ -1,15 +1,29 @@
 {
-    "name": "ydigitalmedia/keycloak-laravel-web-guard",
-    "description": "A package to connect keycloak SSO with laravel project using web guard",
-    "type": "library",
-    "require": {
-        "guzzlehttp/guzzle": "^7.4"
-    },
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "bpereira",
-            "email": "b.pereira@ydigitalmedia.com"
-        }
-    ]
+  "name": "ydigitalmedia/keycloak-laravel-web-guard",
+  "description": "A package to connect keycloak SSO with laravel project using web guard",
+  "require": {
+    "guzzlehttp/guzzle": "^7.4"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "bpereira",
+      "email": "b.pereira@ydigitalmedia.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "YDigitalMedia\\KeycloakWebGuard\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "YDigitalMedia\\KeycloakWebGuard\\KeycloakWebGuardServiceProvider"
+      ],
+      "aliases": {
+        "KeycloakWeb": "YDigitalMedia\\KeycloakWebGuard\\Facades\\KeycloakWeb"
+      }
+    }
+  }
 }
