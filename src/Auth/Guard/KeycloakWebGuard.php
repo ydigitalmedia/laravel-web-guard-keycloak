@@ -192,4 +192,50 @@ class KeycloakWebGuard implements Guard
 	{
 		return empty(array_diff((array) $roles, $this->roles($resource)));
 	}
+
+	/**
+	 * Check user is authenticated and return his resource roles attributes (permissions)
+	 *
+	 * @return array
+	 */
+	public function permissions()
+	{
+		if (!$this->check()) {
+			return false;
+		}
+
+		$token = KeycloakWeb::retrieveToken();
+
+		if (empty($token) || empty($token['access_token'])) {
+			return false;
+		}
+
+		$token = new KeycloakAccessToken($token);
+		$access_token = $token->getAccessToken();
+		$token = $token->parseAccessToken();
+
+		$resourceRoles = $token['resource_access'] ?? [];
+		$resourceRoles = $resourceRoles[$resource] ?? [];
+		$resourceRoles = $resourceRoles['roles'] ?? [];
+
+		$permissions = [];
+
+		$headers = [
+			'Authorization' => 'Bearer ' . $access_token,
+			'Accept' => 'application/json',
+		];
+
+		foreach ($resourceRoles as $key => $value) {
+			$url = Config::get('keycloak-web.base_url') . '/admin/realms/' . Config::get('keycloak-web.realm') . '/clients/' . Config::get('keycloak-web.client_internal_id') . '/roles/' . $value;
+			$client = new Client(Config::get('keycloak-web.guzzle_options', []));
+			$response = $client->get($url, ['headers' => $headers]);
+			$response = json_decode($response->getBody()->getContents(), true);
+		}
+		$permissions = $response["attributes"] ?? [];
+		foreach ($permissions as $key => $value) {
+			$permissions[$key] = $value[0];
+		}
+
+		return $permissions ?? [];
+	}
 }

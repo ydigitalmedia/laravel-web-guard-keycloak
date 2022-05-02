@@ -30,6 +30,13 @@ return [
 	'client_id' => env('KEYCLOAK_CLIENT_ID', null),
 
 	/**
+	 * Keycloak Client Internal ID
+	 *
+	 * @see Keycloak >> Clients >> Installation
+	 */
+	'client_internal_id' => env('KEYCLOAK_CLIENT_INTERNAL_ID', null),
+
+	/**
 	 * Keycloak Client Secret
 	 *
 	 * @see Keycloak >> Clients >> Installation
