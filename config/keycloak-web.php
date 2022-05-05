@@ -59,6 +59,12 @@ return [
 	'redirect_url' => '/admin',
 
 	/**
+	 * Page to redirect after logout
+	 *
+	 */
+	'redirect_logout' => '/login',
+
+	/**
 	 * The routes for authenticate
 	 *
 	 * Accept a string as the first parameter of route() or false to disable the route.
