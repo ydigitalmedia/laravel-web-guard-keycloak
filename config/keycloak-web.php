@@ -59,10 +59,10 @@ return [
 	'redirect_url' => '/admin',
 
 	/**
-	 * Page to redirect after logout
+	 * route name to redirect after logout. If empty defaults to login route
 	 *
 	 */
-	'redirect_logout' => '/login',
+	'redirect_logout' => '',
 
 	/**
 	 * The routes for authenticate
