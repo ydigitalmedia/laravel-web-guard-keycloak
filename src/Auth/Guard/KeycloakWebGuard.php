@@ -231,6 +231,7 @@ class KeycloakWebGuard implements Guard
 			$response = $client->get($url, ['headers' => $headers]);
 			$response = json_decode($response->getBody()->getContents(), true);
 		}
+
 		$permissions = $response["attributes"] ?? [];
 		foreach ($permissions as $key => $value) {
 			$permissions[$key] = $value[0];

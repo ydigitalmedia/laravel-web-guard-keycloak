@@ -11,15 +11,15 @@ It works on front. For APIs we recommend [laravel-keycloak-guard](https://github
 
 ## Requirements
 
-* Have a Keycloak Server.
-* Have a realm configured and a client that accepts authentication.
+- Have a Keycloak Server.
+- Have a realm configured and a client that accepts authentication.
 
 ### Support
 
 This package was tested with:
 
-* Laravel: 9
-* Keycloak: 12.0.4
+- Laravel: 9
+- Keycloak: 12.0.4
 
 Any other version is not guaranteed to work.
 
@@ -66,37 +66,43 @@ Change any value to change the URL.
 
 Other configurations can be changed to have a new default value, but we recommend to use `.env` file:
 
-*  `KEYCLOAK_BASE_URL`
+- `KEYCLOAK_BASE_URL`
 
 The Keycloak Server url. Generally is something like: `https://your-domain.com/auth`.
 
-*  `KEYCLOAK_REALM`
+- `KEYCLOAK_REALM`
 
 The Keycloak realm. The default is `master`.
 
-*  `KEYCLOAK_REALM_PUBLIC_KEY`
+- `KEYCLOAK_REALM_PUBLIC_KEY`
 
 The Keycloak Server realm public key (string).
 
 In dashboard go to: Keycloak >> Realm Settings >> Keys >> RS256 >> Public Key.
 
-*  `KEYCLOAK_CLIENT_ID`
+- `KEYCLOAK_CLIENT_ID`
 
 Keycloak Client ID.
 
 In dashboard go to: Keycloak >> Clients >> Installation.
 
-*  `KEYCLOAK_CLIENT_SECRET`
+- `KEYCLOAK_CLIENT_INTERNAL_ID`
+
+Keycloak Client Internal ID.
+
+In dashboard go to: Keycloak >> Clients and check url for the client ID.
+
+- `KEYCLOAK_CLIENT_SECRET`
 
 Keycloak Client Secret. If empty we'll not send it to Token Endpoint.
 
 In dashboard go to: Keycloak >> Clients >> Installation.
 
-*  `KEYCLOAK_CACHE_OPENID`
+- `KEYCLOAK_CACHE_OPENID`
 
 We can cache the OpenId Configuration: it's a list of endpoints we require to Keycloak.
 
-If you activate it, *remember to flush the cache* when change the realm or url.
+If you activate it, _remember to flush the cache_ when change the realm or url.
 
 Just add the options you would like as an array to the" to "Just add the options you would like to guzzle_options array on keycloak-web.php config file. For example:
 
@@ -132,7 +138,7 @@ And change your provider config too:
 ]
 ```
 
-**Note:** if you want use another User Model, check the FAQ *How to implement my Model?*.
+**Note:** if you want use another User Model, check the FAQ _How to implement my Model?_.
 
 ## API
 
@@ -176,7 +182,7 @@ if (Gate::denies('keycloak-web', 'manage-account', 'another-resource')) {
 }
 ```
 
-*This last use is not trivial, but you can extend the Guard to request authentication/authorization to multiple resources. By default, we request only the current client.*
+_This last use is not trivial, but you can extend the Guard to request authentication/authorization to multiple resources. By default, we request only the current client._
 
 ### Keycloak Can Middleware
 
@@ -295,4 +301,4 @@ Just add the options you would like to `guzzle_options` array on `keycloak-web.p
 
 ## Developers
 
-* Bruno Pereira
+- Bruno Pereira
