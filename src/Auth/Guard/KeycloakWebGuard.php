@@ -79,6 +79,7 @@ class KeycloakWebGuard implements Guard
 	public function setUser(?Authenticatable $user)
 	{
 		$this->user = $user;
+		$this->user->permissions = $this->permissions();
 	}
 
 	/**
